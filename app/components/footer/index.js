@@ -4,9 +4,9 @@ import { Fragment } from "react";
 export default function Footer() {
     return (
         <Fragment>
-            <div className=" bg-gray-500 px-10">
+            <div className=" bg-gray-500 px-5 sm:px-10">
                 <div className="flex flex-col justify-around text-white sm:flex-row sm:justify-between">
-                    <div className="relative w-20 h-8 m-auto mt-10 sm:ml-0 sm:mt-12">
+                    <div className="relative w-20 h-10 m-auto mt-10 sm:ml-0 sm:mt-12">
                         <Image src={'/logo_TOOF.svg'} alt="" fill />
                     </div>
                     <div className="flex justify-center my-10">
@@ -44,7 +44,7 @@ export default function Footer() {
                     </div>
 
                     <div className="hidden sm:block">
-                        <div className="relative w-full mb-2 h-8">
+                        <div className="relative w-full mb-2 h-10">
                             <Image src={'/Group.svg'} alt="" fill />
                         </div>
                         <button
