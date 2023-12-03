@@ -32,6 +32,7 @@ export default React.memo(function Input({ values, value, dispatch }) {
                         )
                       }
                     </div>
+                    
                   </div>
                   {values.length - 1 !== key && <div className="px-3"></div>}
                 </React.Fragment>
