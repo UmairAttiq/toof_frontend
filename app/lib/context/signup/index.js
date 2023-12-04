@@ -9,6 +9,7 @@ const initialState = {
     email: '',
     phone: '',
     password: '',
+    agree:false,
     subscription: null,
     storeName: '',
     address: '',

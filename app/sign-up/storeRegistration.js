@@ -59,11 +59,6 @@ export default function StoreRegistration() {
                 }
             </div>
 
-            <div className="flex items-center">
-                <input id="link-checkbox" type="checkbox" value="" className="w-5 h-5 text-blue-600 bg-transparent border-black" />
-                <label htmlFor="link-checkbox" className="ms-2 font-medium text-black">J&apos;ai lu et j&apos;accepte de CGU/CGV.</label>
-            </div>
-
             <StoreImageUploder state={state} dispatch={dispatch} />
             <Scheduale />
 

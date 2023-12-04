@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Input from "../components/input"
+import Modal from "../components/modal";
 import { useUserForm } from "../lib/context/signup"
 
 const inputList = [
@@ -44,8 +46,14 @@ const inputList = [
 
 export default function Registration() {
     const { state, dispatch } = useUserForm();
+    const [open, setOpen] = useState(false)
     const handleSubmit = () => {
         dispatch({ type: 'UPDATE_FIELD', field: 'step', value: 2 })
+    }
+    const handleClose = () => setOpen((preState) => !preState);
+    const handleAgree = () => {
+        dispatch({ type: 'UPDATE_FIELD', field: 'agree', value: true })
+        setOpen((preState) => !preState)
     }
     return (
         <div>
@@ -59,15 +67,14 @@ export default function Registration() {
             </div>
 
             <div className="flex items-center">
-                <input id="link-checkbox" type="checkbox" value="" className="w-5 h-5 text-blue-600 bg-transparent border-black" />
+                <input id="link-checkbox" type="checkbox" value="" checked={state.agree} className="w-5 h-5 text-blue-600 bg-transparent border-black" onClick={handleClose} />
                 <label htmlFor="link-checkbox" className="ms-2 font-medium text-black">J&apos;ai lu et j&apos;accepte de CGU/CGV.</label>
             </div>
 
-            <button className="w-full bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-4" onClick={handleSubmit}>
+            <button className="w-full bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-4" onClick={handleSubmit} disabled={!state.agree}>
                 Valider
             </button>
-            <div className="w-50">
-            </div>
+            <Modal open={open} handleAgree={handleAgree} handleClose={handleClose}  />
         </div>
     )
 }
